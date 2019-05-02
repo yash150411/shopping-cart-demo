@@ -1,0 +1,117 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <h1>Checkout</h1>
+        <h4>Your Total Billing Amount Is Rs - {{total}}</h4>
+        {{# if errmsg }}
+        <div id="charge-error" class="alert alert-danger">
+            {{errMsg}}
+        </div>
+        {{/if}}
+
+        <form action="/checkout" method="post" id="checkout-form">
+
+          <div class="row">
+              
+                <div class="col-xs-12">
+
+                    <div class="form-group">
+                      <h2>Address:-</h2>
+                        <label for="fullName">Full name</label>
+                        <input type="text" id="fullName" class="form-control" required name="fullName">
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <input type="text" id="mobileNumber" class="form-control" required name="mobileNumber">
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="pincode">Pincode</label>
+                        <input type="text" id="pincode" class="form-control" required name="pincode">
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="flatNo">Flat / House No. / Floor / Building</label>
+                        <input type="text" id="flatNo" class="form-control" required name="flatNo">
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="street">Colony / Street / Locality</label>
+                        <input type="text" id="street" class="form-control" required name="street">
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="landmark">Landmark</label>
+                        <input type="text" id="landmark" class="form-control" required name="landmark">
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" required name="city">
+                    </div>
+                </div>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" class="form-control" required name="state">
+                    </div>
+                </div>
+                <hr>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="card-name">card name</label>
+                        <input type="text" id="card-name" class="form-control">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="card-number">card number</label>
+                        <input type="text" id="card-number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label for="card-expiry-month">card exp month</label>
+                                <input type="text" id="card-expiry-month" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label for="card-expiry-year">card exp year</label>
+                                <input type="text" id="card-expiry-year" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="card-cvc">card cvv</label>
+                        <input type="text" id="card-cvc" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">submit</button>
+        </form>
+
+    </div>
+</div>
+
+<!--<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<!---<script type="text/javascript" src="javascripts/checkout.js"></script>--->

@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+ header {
+   margin: 0px;
+ }
+
+
+ .navbar-toggler {
+    padding: inherit;
+    line-height: 1;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    margin-left: -10px;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+
+#navbutton{
+  position:relative;
+  margin-top:10px;
+  margin-left: 30px;
+
+}
+
+.container {
+  margin : 0px;
+  padding: 0px;
+  min-width: 100%;
+}
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+}
+.navbar-light .navbar-nav .active>.nav-link {
+  color: #ffffff;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+   color: rgba(255, 168, 3, 0.7);
+}
+
+
+#dropdowncat{
+    color: #ffffff;
+    text-decoration: none;
+}
+#dropdowncat:hover {
+    color: rgba(255, 168, 3, 0.7);
+    text-decoration: none;
+}
+
+.bg-light {
+    background-color: #020202!important;
+}
+
+#cartnav {
+  color: #ffffff;
+
+}
+
+#cartnav:hover{
+  color:rgb(255, 168, 3);
+}
+
+.badge {
+      background-color: #f00;
+      margin-bottom:15px;
+      margin-right:-3px;
+      overflow: hidden;
+}
+ </style>
+
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div id="navbutton">
+      <button class="navbar-toggler" id="navbutton" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  </div>
+  <a class="navbar-brand" href="#"><img src="/images/backimg.jpg" alt="dinosour.jpg" height="60px" width="80px" style="margin-top :-20px; border-radius:50%;"></a>
+
+  <div class="search-container">
+    <form action="#">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><i class="fas fa-home">Home</i></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/information/about"><i class="fas fa-home">About</i></a>
+      </li>
+      <li class="nav-item active">
+        <li class="navbar-nav dropdown">
+            <a href="#" id="dropdowncat" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
+               <ul class="dropdown-menu">
+                   <li><a href="/category/notes">Notes</a></li>
+                   <li><a href="/category/coins">Coins</a></li>
+                   <li><a href="/category/errornotes">Error Notes</a></li>
+                   <li><a href="/category/errorcoins">Error Coins</a></li>
+                   <li><a href="/category/birthdaynotes">Birthday Notes</a></li>
+               </ul>
+        </li>
+      </li>
+
+      {{#if login}}
+      <li class="nav-item active">
+        <a class="nav-link" href="/user/sell">Sell</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/user/account"><i class="fas fa-user-circle">My Account</i></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/user/myorders"><i class="fab fa-product-hunt"></i>My Orders</i></a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="/user/myproducts"><i class="fab fa-product-hunt"></i>My Products</i></a>
+     </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/logout"><i class="fas fa-sign-out-alt">Logout</i></a>
+      </li>
+      {{else}}
+      <li class="nav-item">
+        <a class="nav-link" href="/user/signin"><i class="fas fa-sign-in-alt">SignIn</i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/signup"><i class="fas fa-user-plus">SignUp</i></a>
+      </li>
+      {{/if}}
+      <li class="nav-item active">
+        <a class="nav-link" href="/information/contactus"><i class="fas fa-home">Contact Us</i></a>
+      </li>
+
+      </ul>
+
+  </div>
+  <div class="nav-item">
+    <a class="nav-link" id="cartnav" href="/shopping-cart"><span class="badge">{{session.cart.totalQty}}</span><i class="fas fa-shopping-cart">Cart</i></a>
+  </div>
+
+</nav>

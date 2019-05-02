@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <img src="/images/backimg.jpg" width="160px" style="border-radius:50%;">
+      <h1>getoldnotes.com</h1>
+        <h1>sign in</h1></br>
+        {{#if hasErrors}}
+            <div class="alert alert-danger">
+                {{# each messages }}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
+        <form action="/user/signin" method="post">
+            <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <p>not a user yet sign up now <a href="/user/signup">Sign UP!</a></p>
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <button type="submit" class="btn btn-primary">signin</button>
+        </form>
+        </br>
+    </div>
+</div>

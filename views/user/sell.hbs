@@ -1,0 +1,51 @@
+<div>
+  <h1>"START SELLING ON getoldnotes.com AND INCREASE YOUR REVENUE"</h1>
+  <button style="margin-left: 45%;" onclick="myFunction()">Start Selling</button>
+</div>
+
+<form action="/user/sell" method="post" style="display:none;" id="myDIV">
+
+
+      <div class="form-group">
+              <label for="name">productname</label>
+              <input type="text" id="productname" name="productname" class="form-control">
+      </div>
+       <div class="form-group">
+              <label for="category">Category</label>
+              <input type="text" id="category" name="category" class="form-control">
+      </div>
+      <div class="form-group">
+              <label for="price">description</label>
+              <input type="text" id="description" name="description" class="form-control">
+      </div>
+      <div class="form-group">
+              <label for="price">price</label>
+              <input type="text" id="price" name="price" class="form-control">
+      </div>
+
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      <button type="submit" onClick="mfunction()">Sell My Product</button>
+
+</form>
+{{# if messages }}
+
+<div class="alert alert-success" role="alert">
+  <h4>{{messages}}</h4>
+</div>
+
+
+{{/if}}
+
+
+<h3>Why Sell On getoldnotes.com ?</h3>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>

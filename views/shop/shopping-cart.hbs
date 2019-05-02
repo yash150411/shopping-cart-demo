@@ -1,0 +1,71 @@
+<h1>my cart</h1>
+{{# if products }}
+<div class="container">
+  <div class="row">
+
+
+        <div class="col-md-2 col-lg-2 col-xs-2">
+            <h5>productname</h5>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-xs-2">
+            <h5>quantity</h5>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-xs-2">
+            <h5>Price</h5>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-xs-2">
+            <h5>Remove from Cart</h5>
+        </div>
+
+        <div>
+            <h5>proceed to buy</h5>
+            <strong>Sub-total ( {{ session.cart.totalQty }} items ): Rs {{ totalPrice }}</strong>
+            <div >
+                <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
+            </div>
+        </div>
+
+
+  </div>
+</div>
+</div>
+      {{# each products }}
+      <div class="container">
+          <div class="row">
+              <div class="col col-md-2 col-lg-2">
+                <strong>{{ this.item.productname }}</strong>
+              </div>
+              <div class="col col-md-2 col-lg-2">
+                <strong>{{ this.qty }}</strong>
+              </div>
+              <div class="col col-md-2 col-lg-2">
+                <strong>Rs {{ this.price }}</strong>
+              </div>
+              <div class="col col-md-2 col-lg-2">
+                <strong><a href="/reduce/{{this.item._id}}">Remove-1</a></strong>
+                <strong><a href="/remove/{{this.item._id}}">Remove-All</a></strong>
+              </div>
+
+          </div>
+</div>
+
+        {{/each}}
+
+        <hr>
+    <div>
+          <strong>Sub-total ( {{ session.cart.totalQty }} items ): Rs {{ totalPrice }}</strong>
+
+    </div>
+    <hr>
+        <div>
+            <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
+        </div>
+{{ else }}
+    <div>
+        <h2>There Are No Items In Your Cart!!</h2>
+          <a href="/"><button>Shop Now</button></a>
+    </div>
+{{/if}}

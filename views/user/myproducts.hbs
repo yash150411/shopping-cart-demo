@@ -1,0 +1,35 @@
+<div>
+  <h1> my Products</h1>
+  <h6>{{ this.products.productname }}<h6>
+{{# if products}}
+<div>
+    {{# each products }}
+        <div class="row">
+            {{# each this }}
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
+                        <div class="caption">
+                            <h3>{{ this.productname }}</h3>
+                            <p class="description">{{ this.description }}</p>
+                            <div class="clearfix">
+                                <div class="price pull-right"><strong>Rs{{ this.price }}</strong></div>
+                                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                                <button type="submit" class="btn btn-danger">Delete my product</button>
+                                <button type="submit" class="btn btn-success">edit my product</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/each}}
+  </div>
+  <div>
+    <h1>orders received</h1>
+  {{ else}}
+      <div>
+          <h2>you have not uploaded any product to sell</h2>
+          <a href="/user/sell"><button>start selling now</button></a>
+      </div>
+{{/if}}
