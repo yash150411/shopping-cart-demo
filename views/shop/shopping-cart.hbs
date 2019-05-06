@@ -1,3 +1,15 @@
+<style>
+
+.btn{
+    color: #ffffff;
+    background-image: linear-gradient(to bottom,#ec9700 0,#807d15 100%);
+    border-color: #ffffff;
+
+}
+
+</style>
+
+
 <h1>my cart</h1>
 {{# if products }}
 <div class="container">
@@ -24,7 +36,7 @@
             <h5>proceed to buy</h5>
             <strong>Sub-total ( {{ session.cart.totalQty }} items ): Rs {{ totalPrice }}</strong>
             <div >
-                <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
+              <a href="/checkout" class="btn" role="button">Checkout</a>
             </div>
         </div>
 
@@ -61,7 +73,7 @@
     </div>
     <hr>
         <div>
-            <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
+          <a href="/checkout" class="btn" role="button">Checkout</a>
         </div>
 {{ else }}
     <div>

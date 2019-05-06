@@ -20,7 +20,7 @@ var informationRoutes = require('./routes/information');
 
 var app = express();
 
-const password = `yourpassword`;
+const password = `yash12`;
 const username = `yash12`;
 const uri = `mongodb://${username}:${password}@cluster0-shard-00-00-2dkol.mongodb.net:27017,cluster0-shard-00-01-2dkol.mongodb.net:27017,cluster0-shard-00-02-2dkol.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true`;
 
