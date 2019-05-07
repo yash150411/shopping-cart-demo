@@ -3,8 +3,13 @@
 
 .btn{
     color: #ffffff;
-    background-color: red;
+    background-image: linear-gradient(to bottom,#ec9700 0,#807d15 100%);
     border-color: #ffffff;
+}
+#heading{
+    background: -webkit-linear-gradient(#ff6b01ad,#b3712e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 </style>
@@ -46,7 +51,7 @@
     <h1>orders received</h1>
   {{ else}}
       <div>
-          <h2>Sorry {{ user.firstname}}, you do not have any product to sell</h2>
-          <a href="/user/sell"><button>start selling now</button></a>
+          <h2 id="heading">Sorry {{ user.firstname}}, You Have Not Listed Any Product To Sell !!</h2>
+          <a href="/user/sell" class="btn" role="button"><strong>Start Selling Now</strong></a>
       </div>
 {{/if}}

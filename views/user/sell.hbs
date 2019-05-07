@@ -1,32 +1,53 @@
+<style>
+
+
+#button{
+    color: #ffffff;
+    background-image: linear-gradient(to bottom,#ec9700 0,#050528 100%);
+    border-color: #ffffff;
+}
+
+#heading{
+   background: -webkit-linear-gradient(#ff6b01ad,#b3712e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+</style>
+
+
 <div>
-  <h1>"START SELLING ON getoldnotes.com AND INCREASE YOUR REVENUE"</h1>
-  <button style="margin-left: 45%;" onclick="myFunction()">Start Selling</button>
+  <h2 id="heading" style="text-align: center">"START SELLING ON getoldnotes.com AND INCREASE YOUR REVENUE"</h2>
+  <button id="button" class"btn" style="margin-left: 45%; height:40px;" onclick="myFunction()">Start Selling Now</button>
 </div>
 
 <form action="/user/sell" method="post" style="display:none;" id="myDIV">
-
-
-      <div class="form-group">
-              <label for="name">productname</label>
-              <input type="text" id="productname" name="productname" class="form-control">
+  
+      <div class="form-group col-md-offset-4 mt-5" style="width: 40%;">
+              <label for="name">Product Name</label>
+              <input type="text" id="productname" name="productname" class="form-control" placeholder="PRODUCT NAME">
       </div>
-       <div class="form-group">
-              <label for="category">Category</label>
-              <input type="text" id="category" name="category" class="form-control">
+      <div class="row">
+              <div class="form-group col-md-offset-4">
+                      <label for="category">Category</label>
+                      <input type="text" id="category" name="category" class="form-control">
+              </div>
+              <div class="form-group col-md-offset-1">
+                      <label for="price col-md-4">Price</label>
+                      <input type="text" id="price" name="price" class="form-control" placeholder="Price">
+              </div>
       </div>
-      <div class="form-group">
-              <label for="price">description</label>
-              <input type="text" id="description" name="description" class="form-control">
+      <div class="form-group col-md-offset-4" style="width: 40%";>
+              <label for="price">Description</label>
+              <input type="text" id="description" name="description" class="form-control" placeholder="PLEASE PROVIDE A SMALL DESCRIPTION">
       </div>
-      <div class="form-group">
-              <label for="price">price</label>
-              <input type="text" id="price" name="price" class="form-control">
-      </div>
+      
 
       <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-      <button type="submit" onClick="mfunction()">Sell My Product</button>
-
+      <button class="col-md-offset-4" type="submit" id="button" onClick="mfunction()">Sell My Product</button>
+    
 </form>
+
 {{# if messages }}
 
 <div class="alert alert-success" role="alert">
@@ -37,7 +58,7 @@
 {{/if}}
 
 
-<h3>Why Sell On getoldnotes.com ?</h3>
+<h3 id="heading">Why Sell On getoldnotes.com ?</h3>
 
 <script>
 function myFunction() {

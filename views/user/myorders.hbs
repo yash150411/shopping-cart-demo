@@ -17,6 +17,12 @@
     text-transform:capitalize;
 }
 
+#heading{
+     background: -webkit-linear-gradient(#ff6b01ad,#b3712e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 </style>
 {{# if orders}}
 <h1 id="thank">Thankyou For Shopping With Us {{ user.firstname}} {{ user.lastname}}</h1>
@@ -81,5 +87,5 @@
 </div>
 </div>
     {{else}}
-    <h1>sorry you have no orders</h1>
+    <h1 id="heading">Sorry {{ user.firstname}}, You Haven't Ordered Anything Yet !!</h1>
 {{/if}}
