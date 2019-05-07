@@ -46,6 +46,7 @@ router.get('/profile', isLoggedIn, function(req, res, next) {
 
 
 router.get('/myorders', isLoggedIn, function(req, res, next) {
+
   Order.find({  user: req.user  }, function(err, orders) {
     if (err) {
       return res.write('Error!');
@@ -75,12 +76,22 @@ router.get('/myproducts', isLoggedIn, function(req, res, next) {
     for (var i = 0; i < docs.length; i += chunkSize) {
       productChunks.push(docs.slice(i, i + chunkSize));
     }
-    res.render('user/myproducts', {products: productChunks,});
+    var message=req.flash('success');
+    res.render('user/myproducts', {products: productChunks,message:message, user:req.user});
   });
 });
 
 
-
+router.get('/deleteproduct/:id', isLoggedIn, function(req, res, next){
+  var deleteId = req.params.id;
+  Product.findByIdAndRemove(deleteId, function (err, result){
+    if (err){
+      return res.write("error");
+    }
+    req.flash('success', "product deleted");
+    res.redirect('/user/myproducts');  
+  })
+  });
 
 
 router.post('/profile', function(req, res, next) {

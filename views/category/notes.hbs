@@ -1,25 +1,80 @@
+<style>
+
+
+
+.btn{
+    color: #ffffff;
+    background-image: linear-gradient(to bottom,#ec9700 0,#807d15 100%);
+    border-color: #ffffff;
+}
+
+.btn :hover{
+    color: #fff;
+    background-color: #1c1d1c;
+    border-color: #ffffff;
+}
+
+.thumbnail{
+    border: 1px solid #050529;
+    background-color: #050528;
+}
+
+.glyphicon-chevron-right:before {
+    content: "\e080";
+    color: #ec9700;
+}
+
+.glyphicon-chevron-left:before {
+    content: "\e079";
+    color: #ec9700;
+}
+
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    background-color: #ffb300;
+}
+
+.productName{
+    color: #ffffff;
+}
+
+.description{
+    color: #ffb300;
+}
+
+.category{
+    color: #ffee00;
+}
+
+.price{
+    color: #ffffff;
+}
+
+</style>
+
 <h1> this is a category notes page</h1>
 
-{{# if products}}
-<div>
-    {{# each products }}
-        <div class="row">
-            {{# each this }}
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
-                        <div class="caption">
-                            <h3>{{ this.productname }}</h3>
-                            <p class="description">{{ this.description }}</p>
-                            <div class="clearfix">
-                                <div class="price pull-left">Rs{{ this.price }}</div>
-                                <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">ADD TO CART</a>
-                            </div>
+{{# each products }}
+<div class="prod" style="background-color:#eaeded;">
+    <div class="row">
+        {{# each this }}
+            <div class="col-sm-6 col-md-3 mt-1">
+                <div class="thumbnail">
+                    <img src="{{ this.imagePath }}" alt="..." class="img-responsive">
+                    <div class="caption">
+                        <h3 class="productName">{{ this.productname }}</h3>
+                        <p class="description">{{ this.description }}</p>
+                        <p class="category">{{ this.category }}</p>
+                        <div class="clearfix">
+                            <div class="price pull-left"><strong>Rs - {{ this.price }}/-</strong></div>
+                            <a href="/add-to-cart/{{this._id}}" class="btn pull-right" role="button"><strong>ADD TO CART</strong></a>
                         </div>
                     </div>
                 </div>
-            {{/each}}
-        </div>
-    {{/each}}
-  </div>
-{{/if}}
+            </div>
+        {{/each}}
+    </div>
+ </div>
+{{/each}}

@@ -1,5 +1,21 @@
+
+<style>
+
+.btn{
+    color: #ffffff;
+    background-color: red;
+    border-color: #ffffff;
+}
+
+</style>
+
 <div>
-  <h1> my Products</h1>
+  <h1 style="text-transform:capitalize">{{ user.firstname }}'s Products</h1>
+  {{# if message}}
+        <div class="alert alert-success" role="alert">
+             <p>{{message}}</p>
+        </div>  
+  {{/if}}
   <h6>{{ this.products.productname }}<h6>
 {{# if products}}
 <div>
@@ -15,8 +31,9 @@
                             <div class="clearfix">
                                 <div class="price pull-right"><strong>Rs{{ this.price }}</strong></div>
                                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                                <button type="submit" class="btn btn-danger">Delete my product</button>
+                                <a href="/user/deleteproduct/{{this._id}}" class="btn pull-right" role="button"><strong>Delete My Product</strong></a>
                                 <button type="submit" class="btn btn-success">edit my product</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -29,7 +46,7 @@
     <h1>orders received</h1>
   {{ else}}
       <div>
-          <h2>you have not uploaded any product to sell</h2>
+          <h2>Sorry {{ user.firstname}}, you do not have any product to sell</h2>
           <a href="/user/sell"><button>start selling now</button></a>
       </div>
 {{/if}}

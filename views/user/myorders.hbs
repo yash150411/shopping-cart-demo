@@ -2,6 +2,7 @@
 
 #info{
     color: white;
+    text-transform:capitalize;
 }
 
 #sub-info{
@@ -12,20 +13,24 @@
     background-color: #ffc107;
 }
 
-</style>
+#thank{
+    text-transform:capitalize;
+}
 
-<h1> here are your orders</h1>
+</style>
+{{# if orders}}
+<h1 id="thank">Thankyou For Shopping With Us {{ user.firstname}} {{ user.lastname}}</h1>
 
 {{# each orders }}
 <div class="row">
-    <div class="panel panle-default col-md-8 col-md-offset-2" style="background-color:black">
+    <div class="panel panel-default col-md-9 col-md-offset-1" style="background-color:black">
         <div class="panel-head">
-            <div class="row">
+            <div class="row mt-5 ml-2">
                 <strong><p id="info">Order-Date :-  {{  this.date }} </p> </strong>            
             </div>
               
-              <div class="row">
-                  <strong><p id="info">Delivery Address :- {{ this.fullName }} {{ this.flatNo }} {{ this.street }} </p> </strong>
+              <div class="row ml-2">
+                  <strong><p id="info">Delivery Address :- {{ this.fullName }}, {{ this.flatNo }} {{ this.street }} </p> </strong>
               </div>
         </div> 
         <hr>     
@@ -75,3 +80,6 @@
 {{/each}}
 </div>
 </div>
+    {{else}}
+    <h1>sorry you have no orders</h1>
+{{/if}}
