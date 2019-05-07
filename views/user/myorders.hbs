@@ -1,27 +1,71 @@
+<style>
+
+#info{
+    color: white;
+}
+
+#sub-info{
+    color: #ffc107;
+}
+
+.panel-footer{
+    background-color: #ffc107;
+}
+
+</style>
+
 <h1> here are your orders</h1>
 
 {{# each orders }}
 <div class="row">
-    <div class="panel panel-default col-md-8">
-              <strong><p>Date & Time</p></strong>
-              <p> {{this.date}}</p>
-              <div>
-                <h4>Delivery Address :- </h4> <p> {{ this.fullName }} {{ this.flatNo }} {{ this.street }}</p>
+    <div class="panel panle-default col-md-8 col-md-offset-2" style="background-color:black">
+        <div class="panel-head">
+            <div class="row">
+                <strong><p id="info">Order-Date :-  {{  this.date }} </p> </strong>            
+            </div>
+              
+              <div class="row">
+                  <strong><p id="info">Delivery Address :- {{ this.fullName }} {{ this.flatNo }} {{ this.street }} </p> </strong>
               </div>
-
-          <div class="panel-body">
-            <hr>
+        </div> 
+        <hr>     
+          <div class="panel-body"> 
+              <div class="row">
+                  <div class="col-md-3">
+                     <p id="info">Product Name</p> 
+                  </div>
+                  <div class="col-md-3">
+                     <p id="info">Quantity</p> 
+                  </div>
+                  <div class="col-md-3">
+                     <p id="info">Price</p> 
+                  </div>
+                  <div class="col-md-3">
+                     <p id="info" style="text-align:right; margin-right:15px">Total</p> 
+                  </div>
+              </div>      
             <ul class="list-group">
                 {{# each this.items }}
-                    <li class="list-group-item">
-                        <span class="badge">{{ this.price }}</span> {{ this.item.productname }} | {{ this.qty }}Units
+                    <li class="list-group-item">                 
+                       <div class="row">
+                            <div class="col-md-3">
+                                <p>{{ this.item.productname }}</p> 
+                             </div>
+                            <div class="col-md-3">
+                                 <p>{{ this.qty }}</p> 
+                            </div>
+                            <div class="col-md-3">
+                                 <p>Rs :- {{ this.price }}</p> 
+                            </div>
+
+                           <span class="badge">Rs {{ this.price }}</span></div> 
                     </li>
                 {{/each}}
             </ul>
         </div>
 
         <div class="panel-footer">
-            <strong>Total Amount: {{ this.cart.totalPrice }}</strong>
+            <strong>Total Amount: Rs {{ this.cart.totalPrice }}/-</strong>
         </div>
 
     </div>
