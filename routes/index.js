@@ -61,7 +61,7 @@ router.get('/shopping-cart', function(req, res, next) {
   var cart = new Cart(req.session.cart);
   res.render('shop/shopping-cart', {
     products: cart.generateArray(),
-    totalPrice: cart.totalPrice
+    totalPrice: cart.totalPrice  
   });
 });
 

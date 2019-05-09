@@ -11,10 +11,16 @@
 
 .panel-footer{
     background-color: #ffc107;
+    text-align: center;
+
 }
 
 #thank{
     text-transform:capitalize;
+    background: -webkit-linear-gradient(#ff6b01ad,#b3712e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+   margin-left: 1rem;
 }
 
 #heading{
@@ -25,14 +31,15 @@
 
 </style>
 {{# if orders}}
-<h1 id="thank">Thankyou For Shopping With Us {{ user.firstname}} {{ user.lastname}}</h1>
+<h1 id="thank">Thankyou! For Shopping With Us {{ user.firstname}} {{ user.lastname}}.</h1>
 
 {{# each orders }}
 <div class="row">
-    <div class="panel panel-default col-md-9 col-md-offset-1" style="background-color:black">
+    <div class="panel panel-default col-md-11 ml-5" style="background-color:black">
         <div class="panel-head">
-            <div class="row mt-5 ml-2">
-                <strong><p id="info">Order-Date :-  {{  this.date }} </p> </strong>            
+            <div class="row mt-2 ml-2">
+                <strong>><p id="info">Order-Date :-  {{  this.date }} </p></strong> 
+                  
             </div>
               
               <div class="row ml-2">
@@ -61,6 +68,7 @@
                        <div class="row">
                             <div class="col-md-3">
                                 <p>{{ this.item.productname }}</p> 
+                                <p>seller- {{this.item.user}}</p>   
                              </div>
                             <div class="col-md-3">
                                  <p>{{ this.qty }}</p> 

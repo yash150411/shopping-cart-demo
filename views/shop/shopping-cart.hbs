@@ -7,77 +7,106 @@
 
 }
 
+#info{
+    color: white;
+    text-transform:capitalize;
+}
+
+#sub-info{
+    color: #ffc107;
+}
+
+.panel-footer{
+    background-color: #ffc107;
+    text-align: center;
+
+}
+
+#reduce{
+  color: red;
+}
+
+#heading{
+    background: -webkit-linear-gradient(#ff6b01ad,#b3712e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+ 
+}
+
 </style>
+<div class="row">
+  <div class="col-md-offset-5">
+    <h1 id ="heading">My Cart</h1>
+    <a href="/" class="btn" role="button"> Add More Items To Cart</a>  
+  </div>
+</div>
+{{# if products}}
 
+<div class="row mt-2">
+    <div class="panel panel-default col-md-11 ml-5" style="background-color:black">
+        <div class="panel-head">
+            <h4 id="info">Proceed To Buy :- Sub-total ( {{ session.cart.totalQty }} items ): Rs {{ totalPrice }}  <a href="/checkout" class="btn" role="button"> Checkout</a> </h4>
+        </div> 
+        <hr>     
+          <div class="panel-body"> 
+              <div class="row">
+                  <div class="col-md-3">
+                     <p id="info">Product Name</p> 
+                  </div>
+                  <div class="col-md-2">
+                     <p id="info">Quantity</p> 
+                  </div>
+                  <div class="col-md-2">
+                     <p id="info">Reduce by 1 / All</p> 
+                  </div>
+                  <div class="col-md-2">
+                     <p id="info">Price</p> 
+                  </div>
+                  <div class="col-md-3">
+                     <p id="info" style="text-align:right; margin-right:15px">Total</p> 
+                  </div>
+              </div>      
+            <ul class="list-group">
+                {{# each products }}
+                    <li class="list-group-item">                 
+                       <div class="row">
+                            <div class="col-md-3">
+                                <p>{{ this.item.productname }}</p> 
+                             </div>
+                            <div class="col-md-2">
+                                 <p>{{ this.qty }}</p> 
+                            </div>
+                            <div class="col-md-2">
+                                 <strong><a id="reduce" href="/reduce/{{this.item._id}}">Reduce-By-1</a></strong>
+                                 <strong><a id="reduce" href="/remove/{{this.item._id}}">/ All</a></strong>
+                            </div>
+                            <div class="col-md-2">
+                                 <p>Rs :- {{ this.price }}</p> 
+                            </div>
+                            <div class="col-md-2">
+                                  <span class="badge">Rs {{ this.price }}</span>
+                            </div>
 
-<h1>my cart</h1>
-{{# if products }}
-<div class="container">
-  <div class="row">
-
-
-        <div class="col-md-2 col-lg-2 col-xs-2">
-            <h5>productname</h5>
+                           
+                    </li>
+                {{/each}}
+            </ul>
         </div>
 
-        <div class="col-md-2 col-lg-2 col-xs-2">
-            <h5>quantity</h5>
-        </div>
-
-        <div class="col-md-2 col-lg-2 col-xs-2">
-            <h5>Price</h5>
-        </div>
-
-        <div class="col-md-2 col-lg-2 col-xs-2">
-            <h5>Remove from Cart</h5>
-        </div>
-
-        <div>
-            <h5>proceed to buy</h5>
+        <div class="panel-footer">
             <strong>Sub-total ( {{ session.cart.totalQty }} items ): Rs {{ totalPrice }}</strong>
-            <div >
-              <a href="/checkout" class="btn" role="button">Checkout</a>
-            </div>
+             <a href="/checkout" class="btn" role="button">Checkout</a>
         </div>
 
+    </div>
 
   </div>
 </div>
-</div>
-      {{# each products }}
-      <div class="container">
-          <div class="row">
-              <div class="col col-md-2 col-lg-2">
-                <strong>{{ this.item.productname }}</strong>
-              </div>
-              <div class="col col-md-2 col-lg-2">
-                <strong>{{ this.qty }}</strong>
-              </div>
-              <div class="col col-md-2 col-lg-2">
-                <strong>Rs {{ this.price }}</strong>
-              </div>
-              <div class="col col-md-2 col-lg-2">
-                <strong><a href="/reduce/{{this.item._id}}">Remove-1</a></strong>
-                <strong><a href="/remove/{{this.item._id}}">Remove-All</a></strong>
-              </div>
-
-          </div>
-</div>
-
-        {{/each}}
-
-        <hr>
-    <div>
-          <strong>Sub-total ( {{ session.cart.totalQty }} items ): Rs {{ totalPrice }}</strong>
-
-    </div>
-    <hr>
-        <div>
-          <a href="/checkout" class="btn" role="button">Checkout</a>
-        </div>
-{{ else }}
-    <div>
-        <h2>There Are No Items In Your Cart!!</h2>
-          <a href="/"><button>Shop Now</button></a>
-    </div>
 {{/if}}
+</div>
+</div>
+
+
+
+

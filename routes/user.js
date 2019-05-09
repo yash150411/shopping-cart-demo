@@ -63,9 +63,6 @@ router.get('/myorders', isLoggedIn, function(req, res, next) {
 
 
 
-
-
-
 router.get('/myproducts', isLoggedIn, function(req, res, next) {
   Product.find({  user: req.user  }, function(err, docs) {
     if (err) {
@@ -194,7 +191,7 @@ router.post('/sell', function (req, res, next) {
   poduct.save()
   .then(function (){
    req.flash ('success', 'Thankyou your product has been added to sell we wiil inform you as we have a buyer for it')
-   res.redirect('/user/sell');
+   res.redirect('/user/myproducts');
  })
   .catch(err => console.log(err));
 });
@@ -216,6 +213,7 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
+  
   res.redirect('/');
 }
 
